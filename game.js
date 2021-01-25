@@ -2,20 +2,44 @@ class Game {
     constructor(){
         this.player = new Player();
         this.background = new Background();
+        this.tomatoImg;
+        this.tomatos;
     }
 
     setup() {   
         this.player.setup();
+        this.tomatos = [];
     }
 
     preload() {
         this.background.preload();
         this.player.preload();
+        this.tomatoImg = loadImage('images/tomato/Tomato.png');
     }
     draw() {
         clear();
-        this.background.drawMove();
+        this.background.draw();
         this.player.draw();
+
+        if (frameCount % 100 === 0) {
+            for (let i = 1182; this.tomatos.length < 6; i = i + ((Math.random()*1100))){
+                this.tomatos.push(new Tomato(this.tomatoImg,i));
+            }
+        }
+
+        this.tomatos.forEach(function (tomato) {
+            tomato.draw()
+        })
+
+        this.tomatos = this.tomatos.filter((tomato) => {
+            if (tomato.collision(this.player)) {
+                return false
+            } else {
+                return true
+            }
+
+        })
+
     }
 
 

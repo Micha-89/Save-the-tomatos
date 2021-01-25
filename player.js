@@ -4,22 +4,31 @@ class Player {
         this.score = 0;
         this.charIdleData;
         this.charIdleImg;
-        this.charRunData;
+        this.charData;
         this.charRunImg;
+        this.charAttackImg;
+        this.charJumpImg;
         this.animationRun = [];
         this.animationIdle = [];
-        this.x = 0;
+        this.animationAttack = [];
+        this.animationJump = [];
+        this.x = 10;
+        this.y = 648 - 200;
+        this.width = 200;
+        this.height = 200;
     }
     preload() {
        this.charIdleData = loadJSON('images/character/charIdle.json')
        this.charIdleImg = loadImage('images/character/GraveRobber_idle.png');
-       this.charRunData = loadJSON('images/character/char.json');
+       this.charData = loadJSON('images/character/char.json');
        this.charRunImg = loadImage('images/character/GraveRobber_run.png');
+       this.charAttackImg = loadImage('images/character/GraveRobber_attack1.png');
+       this.charJumpImg = loadImage('images/character/GraveRobber_jump.png');
     }
     setup() {
-        let framesRun = this.charRunData.frames;
-        for (let i = 0; i < framesRun.length; i++){
-            let pos = framesRun[i].position;
+        let frames = this.charData.frames;
+        for (let i = 0; i < frames.length; i++){
+            let pos = frames[i].position;
             let img = this.charRunImg.get(pos.x, pos.y, pos.w, pos.h);
             this.animationRun.push(img);
         }
@@ -29,15 +38,25 @@ class Player {
             let img = this.charIdleImg.get(pos.x, pos.y, pos.w, pos.h);
             this.animationIdle.push(img);
         }
-    }
-    draw() {
-        
-        if (keyIsDown(RIGHT_ARROW)) { 
-            image(this.animationRun[frameCount % this.animationRun.length], this.x, height - 200, 200, 200);
-            this.x += 10; 
-        } else {
-            image(this.animationIdle[frameCount % this.animationIdle.length], this.x, height - 200, 200, 200);
+        for (let i = 0; i < frames.length; i++){
+            let pos = frames[i].position;
+            let img = this.charAttackImg.get(pos.x, pos.y, pos.w, pos.h);
+            this.animationAttack.push(img);
+        }
+        for (let i = 0; i < frames.length; i++){
+            let pos = frames[i].position;
+            let img = this.charJumpImg.get(pos.x, pos.y, pos.w, pos.h);
+            this.animationJump.push(img);
         }
     }
-   
+    draw() {
+        if (keyIsDown(RIGHT_ARROW)) { 
+            image(this.animationRun[frameCount % this.animationRun.length], this.x, this.y, 200, 200); 
+        } else if (keyIsDown(32)) {
+            image(this.animationAttack[frameCount % this.animationAttack.length], this.x, this.y, 200, 200);
+        } else {
+            image(this.animationIdle[frameCount % this.animationIdle.length], this.x, this.y, 200, 200);
+        }
+    }
+      
 }

@@ -14,19 +14,18 @@ class Background {
             { src: loadImage('images/background/1.png'), x: 0, speed: 12 }
         ];  
     }
-    drawMove() {
+    draw() {
         this.backgroundImages.forEach(function (img) {
-            img.x -= img.speed;
             image(img.src, img.x, 0, width, height);
             image(img.src, img.x + width, 0, width, height);
             if (img.x <= - width) {
                 img.x = 0;
             }
         })
-    }
-    drawStill() {
-        game.backgroundImages.forEach(function (img) {
-            image(img.src, img.x, 0, width, height);
-        })
+        if (keyIsDown(RIGHT_ARROW)) { 
+            this.backgroundImages.forEach(function (img) {
+                img.x -= img.speed;
+            })
+        } 
     }
 }
