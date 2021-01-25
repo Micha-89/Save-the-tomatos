@@ -13,6 +13,7 @@ function preload() {
 
 function setup(){
     createCanvas(1152, 648);
+    frameRate(14);
     game.setup();
 
     let frames = charRunData.frames;
