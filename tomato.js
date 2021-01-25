@@ -26,7 +26,7 @@ class Tomato {
     draw() {
       image(this.image, this.x, this.y, this.wh, this.wh);
       if (keyIsDown(RIGHT_ARROW)) { 
-            this.x -= 12;
+            this.x -= 21;
     } 
     }
 }

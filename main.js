@@ -8,7 +8,7 @@ function preload() {
 
 function setup(){
     createCanvas(1152, 648);
-    frameRate(10);
+    frameRate(13);
     game.setup();
 }
 
