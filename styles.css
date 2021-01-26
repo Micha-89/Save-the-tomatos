@@ -1,8 +1,13 @@
+html, body {
+  height: 100%;
+}
+
 body {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     font-family: sans-serif;
-    background-color: green;
+    background-color: #4e9961;
+    margin: 0;
   }

@@ -18,6 +18,7 @@ class Tomato {
             return false
         } else {
             game.player.score += 1;
+            score.score += 1;
             console.log(game.player.score)
             return true
         }

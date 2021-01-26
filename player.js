@@ -8,10 +8,13 @@ class Player {
         this.charRunImg;
         this.charAttackImg;
         this.charJumpImg;
+        this.charHurt;
+        this.charDeath;
         this.animationRun = [];
         this.animationIdle = [];
         this.animationAttack = [];
         this.animationJump = [];
+        this.animationDeath = [];
         this.x = 10;
         this.y = 648 - 200;
         this.width = 200;
@@ -24,6 +27,8 @@ class Player {
        this.charRunImg = loadImage('images/character/GraveRobber_run.png');
        this.charAttackImg = loadImage('images/character/GraveRobber_attack1.png');
        this.charJumpImg = loadImage('images/character/GraveRobber_jump.png');
+       this.charHurt = loadImage('images/character/GraveRobber_hurt.png');
+       this.charDeath = loadImage('images/character/GraveRobber_death.png');
     }
     setup() {
         let frames = this.charData.frames;
@@ -31,6 +36,11 @@ class Player {
             let pos = frames[i].position;
             let img = this.charRunImg.get(pos.x, pos.y, pos.w, pos.h);
             this.animationRun.push(img);
+        }
+        for (let i = 0; i < frames.length; i++){
+            let pos = frames[i].position;
+            let img = this.charDeath.get(pos.x, pos.y, pos.w, pos.h);
+            this.animationDeath.push(img);
         }
         let framesIdle = this.charIdleData.frames;
         for (let i = 0; i < framesIdle.length; i++){
@@ -50,12 +60,27 @@ class Player {
         }
     }
     draw() {
-        if (keyIsDown(RIGHT_ARROW)) { 
-            image(this.animationRun[frameCount % this.animationRun.length], this.x, this.y, 200, 200); 
+        if (keyIsDown(RIGHT_ARROW)) {      
+            if (this.lives < 1) {
+                image(this.animationDeath[frameCount % this.animationDeath.length], this.x, this.y, 200, 200);
+                frameRate(0);
+            } else {
+                image(this.animationRun[frameCount % this.animationRun.length], this.x, this.y, 200, 200);
+            }
         } else if (keyIsDown(32)) {
-            image(this.animationAttack[frameCount % this.animationAttack.length], this.x, this.y, 200, 200);
+            if (this.lives < 1) {
+                image(this.animationDeath[frameCount % this.animationDeath.length], this.x, this.y, 200, 200);
+                frameRate(0);
+            } else {
+                image(this.animationAttack[frameCount % this.animationAttack.length], this.x, this.y, 200, 200);
+            }
         } else {
-            image(this.animationIdle[frameCount % this.animationIdle.length], this.x, this.y, 200, 200);
+            if (this.lives < 1) {
+                image(this.animationDeath[frameCount % this.animationDeath.length], this.x, this.y, 200, 200);
+                frameRate(0);
+            } else {
+                image(this.animationIdle[frameCount % this.animationIdle.length], this.x, this.y, 200, 200);
+            }
         }
     }
       
