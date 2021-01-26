@@ -41,26 +41,25 @@ class Bat {
 
         //player collision or outside of canvas
 
-        let obstacleX = this.x + this.width;
+        let obstacleX = this.x + this.width/2;
         let obstacleY = 0;
        
-        let playerX = game.player.x + game.player.width;
+        let playerX = game.player.x + game.player.width/2;
         let playerY = 0;
 
-        if(dist(obstacleX, obstacleY, playerX, playerY) < 30 && !keyIsDown(32)) {
+        if(dist(obstacleX, obstacleY, playerX, playerY) < 40 && !keyIsDown(32)) {
             this.x = 1090;
             this.y = Math.random()*509;
             game.player.lives--;
             score.lives--;                   
-        } else if (dist(obstacleX, obstacleY, playerX, playerY) < 30 && keyIsDown(32) && keyIsDown(RIGHT_ARROW)) {
+        } else if (dist(obstacleX, obstacleY, playerX, playerY) < 40 && keyIsDown(32) && keyIsDown(RIGHT_ARROW)) {
             this.x = 1090;
             this.y = Math.random()*509;
             game.player.lives--;
             score.lives--;  
-        } else if (this.x < 0) {
+        } else if (this.x < 100) {
             this.x = 1090;
             this.y = Math.random()*509;
-            console.log('evade')
         }
           
     }

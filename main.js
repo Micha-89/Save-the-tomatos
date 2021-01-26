@@ -1,9 +1,16 @@
 const game = new Game();
 const score = new Score();
 
-document.querySelector('#start button').addEventListener('click', function(){
+document.querySelector('#start img').addEventListener('click', function(){
      document.querySelector('#start').style.visibility = 'hidden';
+     document.querySelector('body').style.cursor = 'none';
 });
+
+document.addEventListener('keyup', function(e){
+    if(e.keyCode == 13)
+    window.location.reload();
+
+})
 
 let myFont, fontReady = false;
 
@@ -22,7 +29,7 @@ function preload() {
 function setup(){
     createCanvas(1152, 648);
     frameRate(0);
-    document.querySelector('#start button').addEventListener('click', function(){
+    document.querySelector('#start img').addEventListener('click', function(){
         frameRate(15);
     });
     game.setup();
