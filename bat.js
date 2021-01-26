@@ -29,14 +29,14 @@ class Bat {
 
         if (keyIsDown(RIGHT_ARROW)) { 
             if (this.y < 510){
-                this.y = this.y + Math.random()*100;
+                this.y = this.y + Math.random()*120;
             }
-            this.x = this.x - Math.random()*120;
+            this.x = this.x - Math.random()*140;
         } else {
             if (this.y < 510){
-                this.y = this.y + Math.random()*45;
+                this.y = this.y + Math.random()*60;
             }
-            this.x = this.x - Math.random()*50;
+            this.x = this.x - Math.random()*75;
         }
 
         //player collision or outside of canvas
@@ -51,10 +51,12 @@ class Bat {
             this.x = 1090;
             this.y = Math.random()*551;
             game.player.lives--;
+            score.lives--;                   
+        } else if (dist(obstacleX, obstacleY, playerX, playerY) < 30 && keyIsDown(32) && keyIsDown(RIGHT_ARROW)) {
+            this.x = 1090;
+            this.y = Math.random()*551;
+            game.player.lives--;
             score.lives--;  
-            console.log(game.player.lives)                  
-        } else if (dist(obstacleX, obstacleY, playerX, playerY) < 30 && keyIsDown(32)){
-            console.log('hit')
         } else if (this.x < 0) {
             this.x = 1090;
             this.y = Math.random()*551;

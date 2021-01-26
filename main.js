@@ -16,9 +16,8 @@ function preload() {
 
 function setup(){
     createCanvas(1152, 648);
-    frameRate(13);
+    frameRate(15);
     game.setup();
-    score.setup();
 }
 
 function draw() {
