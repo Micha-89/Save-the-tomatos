@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Planes_ValMore';
+    src: url('Planes_ValMore-Bold.woff2') format('woff2'),
+        url('Planes_ValMore-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

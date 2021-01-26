@@ -29,7 +29,7 @@ class Bat {
 
         if (keyIsDown(RIGHT_ARROW)) { 
             if (this.y < 510){
-                this.y = this.y + Math.random()*120;
+                this.y = this.y + Math.random()*80;
             }
             this.x = this.x - Math.random()*140;
         } else {
@@ -49,17 +49,17 @@ class Bat {
 
         if(dist(obstacleX, obstacleY, playerX, playerY) < 30 && !keyIsDown(32)) {
             this.x = 1090;
-            this.y = Math.random()*551;
+            this.y = Math.random()*509;
             game.player.lives--;
             score.lives--;                   
         } else if (dist(obstacleX, obstacleY, playerX, playerY) < 30 && keyIsDown(32) && keyIsDown(RIGHT_ARROW)) {
             this.x = 1090;
-            this.y = Math.random()*551;
+            this.y = Math.random()*509;
             game.player.lives--;
             score.lives--;  
         } else if (this.x < 0) {
             this.x = 1090;
-            this.y = Math.random()*551;
+            this.y = Math.random()*509;
             console.log('evade')
         }
           
