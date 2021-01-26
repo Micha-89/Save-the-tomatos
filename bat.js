@@ -22,35 +22,38 @@ class Bat {
         }
     }
     draw() {
+
         image(this.animationBat[frameCount % this.animationBat.length], this.x, this.y, this.width, this.height);
+
+        //speed of the bat
+        
         if (keyIsDown(RIGHT_ARROW)) { 
             if (this.y < 510){
-                this.y = this.y + Math.random()*85;
-                if(this.x < 20) {
-                    this.x = 1090;
-                    this.y = Math.random()*551;
-                }
+                this.y = this.y + Math.random()*100;
             }
-            this.x = this.x - Math.random()*100;
-            if(this.x < 20) {
-                this.x = 1090;
-                this.y = Math.random()*551;
-            }
+            this.x = this.x - Math.random()*120;
         } else {
             if (this.y < 510){
                 this.y = this.y + Math.random()*45;
-                if(this.x < 20) {
-                    this.x = 1090;
-                    this.y = Math.random()*551;
-                }
             }
             this.x = this.x - Math.random()*50;
-             if(this.x < 20) {
-                this.x = 1090;
-                this.y = Math.random()*551;
-            }
-        } 
-        
+        }
+
+        //player collision or outside of canvas
+
+        let obstacleX = this.x + this.width;
+        let obstacleY = 0;
+       
+        let playerX = game.player.x + game.player.width;
+        let playerY = 0;
+
+        if(dist(obstacleX, obstacleY, playerX, playerY) < 20) {
+            this.x = 1090;
+            this.y = Math.random()*551;
+        } else if (this.x < 0){
+            this.x = 1090;
+            this.y = Math.random()*551;
+        }
         
     }
 
