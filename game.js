@@ -20,9 +20,6 @@ class Game {
         this.tomatos = [];
         this.bat.setup();
         this.tomatoSound.setVolume(0.4);
-        if(score.score < 1){
-            backgroundMusic.loop();
-        }
     }
     draw() {
         clear();

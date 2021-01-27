@@ -7,6 +7,7 @@ let backgroundMusic;
 document.querySelector('#start img').addEventListener('click', function(){
      document.querySelector('#start').style.visibility = 'hidden';
      document.querySelector('body').style.cursor = 'none';
+     backgroundMusic.loop();
 });
 
 document.addEventListener('keyup', function(e){
@@ -40,6 +41,7 @@ function setup(){
     game.setup();
     score.setup();
     backgroundMusic.setVolume(0.2);
+   
 }
 
 function draw() {
