@@ -33,7 +33,7 @@ function setup(){
     createCanvas(1152, 648);
     frameRate(0);
     document.querySelector('#start img').addEventListener('click', function(){
-        frameRate(18);
+        frameRate(22);
     });
     game.setup();
     score.setup();

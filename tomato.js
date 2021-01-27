@@ -9,12 +9,12 @@ class Tomato {
     }
     collision(playerInfo) {
         let obstacleX = this.x + this.wh / 2;
-        let obstacleY = 0;
+        let obstacleY = 648;
        
         let playerX = playerInfo.x + playerInfo.width / 2;
-        let playerY = 0;
+        let playerY = 648;
         
-        if (dist(obstacleX, obstacleY, playerX, playerY) > 10) {
+        if (dist(obstacleX, obstacleY, playerX, playerY) > 20) {
             return false
         } else {
             game.player.score += 1;
