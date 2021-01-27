@@ -3,7 +3,22 @@ class Score {
         this.lives = 3;
         this.score = 0;
         this.timer = 10;
+        this.deathSound;
+        this.winSound;
+        this.timeUpSound;
     }
+    preload() {
+        soundFormats('wav');
+        this.deathSound = loadSound('sound/playerDied.wav');
+        this.winSound = loadSound('sound/win.wav');
+        this.timeUpSound = loadSound('sound/timeUp.wav');
+    }
+    setup() {
+        this.deathSound.setVolume(0.4);
+        this.winSound.setVolume(0.4);
+        this.timeUpSound.setVolume(0.4);
+    } 
+
     draw(){
         textFont(myFont);
         textSize(32);
@@ -16,6 +31,8 @@ class Score {
             textFont(myFont);
             textSize(100);
             fill(255,215,0);
+            game.backgroundMusic.stop();
+            this.deathSound.play();
             text('YOU DIED!!!', 300, 400);
         }
 
@@ -23,6 +40,8 @@ class Score {
             textFont(myFont);
             textSize(100);
             fill(255,215,0);
+            game.backgroundMusic.stop();
+            this.timeUpSound.play();
             text('TIME UP!!!', 300, 400);
             frameRate(0);
         }
@@ -32,6 +51,8 @@ class Score {
             textSize(100);
             fill(255,215,0);
             if(frameCount%10==0){
+                game.backgroundMusic.stop();
+                this.winSound.play();
                 text('YOU WON!!!', 300, 400);
                 frameRate(0);
             }

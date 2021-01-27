@@ -1,5 +1,7 @@
 const game = new Game();
 const score = new Score();
+let frameCountTracker = 0;
+
 
 document.querySelector('#start img').addEventListener('click', function(){
      document.querySelector('#start').style.visibility = 'hidden';
@@ -23,6 +25,7 @@ function fontRead(){
 
 function preload() {    
     game.preload();
+    score.preload();
     myFont = loadFont('/font/Planes_ValMore.ttf', fontRead);
 }
 
@@ -30,9 +33,11 @@ function setup(){
     createCanvas(1152, 648);
     frameRate(0);
     document.querySelector('#start img').addEventListener('click', function(){
-        frameRate(15);
+        frameRate(18);
     });
     game.setup();
+    score.setup();
+    
 }
 
 function draw() {

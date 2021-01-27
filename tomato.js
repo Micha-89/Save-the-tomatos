@@ -20,6 +20,7 @@ class Tomato {
             game.player.score += 1;
             score.score += 1;
             console.log(game.player.score)
+            game.tomatoSound.play();
             return true
         }
 

@@ -7,13 +7,24 @@ class Bat {
         this.y = 100;
         this.width = 60;
         this.height = 60;
-
+        this.batHurtSound;
+        this.swordSound;
+        this.playerHitSound;
+        this.evadeSound;
     }
     preload() {
         this.batData = loadJSON('images/bat/bat.JSON')
         this.batImg = loadImage('images/bat/Bat_Walk.png');
+        this.batHurtSound = loadSound('sound/batHurt.wav');
+        this.swordSound = loadSound('sound/swordStrike.mp3');
+        this.playerHitSound = loadSound('sound/playerHit.wav');
+        this.evadeSound = loadSound('sound/evade.wav');
      }
      setup() {
+        this.evadeSound.setVolume(0.3);
+        this.playerHitSound.setVolume(0.3);  
+        this.swordSound.setVolume(0.3);
+        this.batHurtSound.setVolume(0.3);
         let frames = this.batData.frames;
         for (let i = 0; i < frames.length; i++){
             let pos = frames[i].position;
@@ -51,13 +62,18 @@ class Bat {
             this.x = 1090;
             this.y = Math.random()*509;
             game.player.lives--;
-            score.lives--;                   
+            score.lives--;    
+            this.playerHitSound.play();               
         } else if (dist(obstacleX, obstacleY, playerX, playerY) < 40 && keyIsDown(32) && keyIsDown(RIGHT_ARROW)) {
             this.x = 1090;
             this.y = Math.random()*509;
             game.player.lives--;
             score.lives--;  
-        } else if (this.x < 100) {
+            this.playerHitSound.play();  
+        } else if (dist(obstacleX, obstacleY, playerX, playerY) < 40 && keyIsDown(32) && !keyIsDown(RIGHT_ARROW)) {
+            this.batHurtSound.play();
+            this.swordSound.play();
+        } else if (this.x < 110) {
             this.x = 1090;
             this.y = Math.random()*509;
         }
