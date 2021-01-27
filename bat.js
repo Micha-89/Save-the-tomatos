@@ -71,9 +71,12 @@ class Bat {
             score.lives--;  
             this.playerHitSound.play();  
         } else if (dist(obstacleX, obstacleY, playerX, playerY) < 40 && keyIsDown(32) && !keyIsDown(RIGHT_ARROW)) {
+            this.x = 1090;
+            this.y = Math.random()*509;
             this.batHurtSound.play();
             this.swordSound.play();
         } else if (this.x < 110) {
+            this.evadeSound.play();
             this.x = 1090;
             this.y = Math.random()*509;
         }
