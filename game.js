@@ -5,7 +5,6 @@ class Game {
         this.bat = new Bat();
         this.tomatoImg;
         this.tomatos;
-        this.backgroundMusic;
         this.tomatoSound;
         
     }
@@ -14,15 +13,12 @@ class Game {
         this.player.preload();
         this.tomatoImg = loadImage('images/tomato/Tomato.png');
         this.bat.preload();
-        this.backgroundMusic = loadSound('sound/mixkit-epical-drums-04-679.mp3');
         this.tomatoSound = loadSound('sound/tomato.wav');
     }
     setup() {   
         this.player.setup();
         this.tomatos = [];
         this.bat.setup();
-        this.backgroundMusic.setVolume(0.2);
-        this.backgroundMusic.loop();
         this.tomatoSound.setVolume(0.4);
     }
     draw() {

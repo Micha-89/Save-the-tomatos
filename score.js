@@ -31,7 +31,7 @@ class Score {
             textFont(myFont);
             textSize(100);
             fill(255,215,0);
-            game.backgroundMusic.stop();
+            backgroundMusic.stop();
             this.deathSound.play();
             text('YOU DIED!!!', 300, 400);
         }
@@ -40,7 +40,7 @@ class Score {
             textFont(myFont);
             textSize(100);
             fill(255,215,0);
-            game.backgroundMusic.stop();
+            backgroundMusic.stop();
             this.timeUpSound.play();
             text('TIME UP!!!', 300, 400);
             frameRate(0);
@@ -51,7 +51,7 @@ class Score {
             textSize(100);
             fill(255,215,0);
             if(frameCount%10==0){
-                game.backgroundMusic.stop();
+                backgroundMusic.stop();
                 this.winSound.play();
                 text('YOU WON!!!', 300, 400);
                 frameRate(0);

@@ -1,7 +1,7 @@
 const game = new Game();
 const score = new Score();
 let frameCountTracker = 0;
-
+let backgroundMusic;
 
 document.querySelector('#start img').addEventListener('click', function(){
      document.querySelector('#start').style.visibility = 'hidden';
@@ -27,6 +27,7 @@ function preload() {
     game.preload();
     score.preload();
     myFont = loadFont('/font/Planes_ValMore.ttf', fontRead);
+    backgroundMusic = loadSound('sound/mixkit-epical-drums-04-679.mp3');
 }
 
 function setup(){
@@ -37,7 +38,8 @@ function setup(){
     });
     game.setup();
     score.setup();
-    
+    backgroundMusic.setVolume(0.2);
+    backgroundMusic.loop();
 }
 
 function draw() {
