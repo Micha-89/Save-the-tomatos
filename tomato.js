@@ -14,7 +14,7 @@ class Tomato {
         let playerX = playerInfo.x + playerInfo.width / 2;
         let playerY = 0;
         
-        if (dist(obstacleX, obstacleY, playerX, playerY) > 25) {
+        if (dist(obstacleX, obstacleY, playerX, playerY) > 10) {
             return false
         } else {
             game.player.score += 1;

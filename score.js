@@ -27,7 +27,7 @@ class Score {
             frameRate(0);
         }
 
-        if (this.timer > 0 && this.lives > 0 && this.score == 5 ) {
+        if (this.timer > 0 && this.lives > 0 && this.score > 4 ) {
             textFont(myFont);
             textSize(100);
             fill(255,215,0);
