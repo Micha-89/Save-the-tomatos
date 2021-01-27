@@ -1,7 +1,10 @@
 const game = new Game();
 const score = new Score();
 let frameCountTracker = 0;
-let backgroundMusic;
+
+window.addEventListener('load', () => {
+    let backgroundMusic;
+});
 
 document.querySelector('#start img').addEventListener('click', function(){
      document.querySelector('#start').style.visibility = 'hidden';
