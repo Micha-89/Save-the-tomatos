@@ -24,6 +24,9 @@ class Game {
     draw() {
         clear();
         this.background.draw();
+        this.tomatos.forEach(function (tomato) {
+            tomato.draw()
+        })
         this.player.draw();
         this.bat.draw();
 
@@ -33,9 +36,7 @@ class Game {
             }
         }
 
-        this.tomatos.forEach(function (tomato) {
-            tomato.draw()
-        })
+       
 
         this.tomatos = this.tomatos.filter((tomato) => {
             if (tomato.collision(this.player)) {

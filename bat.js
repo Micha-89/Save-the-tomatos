@@ -17,12 +17,12 @@ class Bat {
         this.batImg = loadImage('images/bat/Bat_Walk.png');
         this.batHurtSound = loadSound('sound/batHurt.wav');
         this.swordSound = loadSound('sound/swordStrike.mp3');
-        this.playerHitSound = loadSound('sound/playerHit.wav');
+        this.playerHitSound = loadSound('sound/ow.wav');
         this.evadeSound = loadSound('sound/evade.wav');
      }
      setup() {
         this.evadeSound.setVolume(0.3);
-        this.playerHitSound.setVolume(0.3);  
+        this.playerHitSound.setVolume(0.4);  
         this.swordSound.setVolume(0.3);
         this.batHurtSound.setVolume(0.3);
         let frames = this.batData.frames;

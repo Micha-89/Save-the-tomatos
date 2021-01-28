@@ -31,6 +31,7 @@ class Score {
             textFont(myFont);
             textSize(100);
             fill(255,215,0);
+            game.bat.playerHitSound.stop();
             backgroundMusic.stop();
             this.deathSound.play();
             text('YOU DIED!!!', 300, 400);
