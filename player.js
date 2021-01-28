@@ -1,6 +1,6 @@
 class Player {
     constructor() {
-        this.lives = 3;
+        this.lives;
         this.score = 0;
         this.charIdleData;
         this.charIdleImg;

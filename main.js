@@ -3,11 +3,14 @@ const score = new Score();
 let frameCountTracker = 0;
 let backgroundMusic;
 
-
 document.querySelector('#start img').addEventListener('click', function(){
-     document.querySelector('#start').style.visibility = 'hidden';
-     document.querySelector('body').style.cursor = 'none';
-     backgroundMusic.loop();
+    score.lives = livesRange.value;
+    game.player.lives = livesRange.value;
+    score.timer = timerRange.value;
+    score.neededScore = tomatosRange.value;
+    document.querySelector('#start').style.visibility = 'hidden';
+    document.querySelector('body').style.cursor = 'none';
+    backgroundMusic.loop();
 });
 
 document.addEventListener('keyup', function(e){

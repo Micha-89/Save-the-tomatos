@@ -1,8 +1,9 @@
 class Score {
     constructor(){
-        this.lives = 3;
+        this.lives;
+        this.neededScore;
         this.score = 0;
-        this.timer = 10;
+        this.timer;
         this.deathSound;
         this.winSound;
         this.timeUpSound;
@@ -47,7 +48,7 @@ class Score {
             frameRate(0);
         }
 
-        if (this.timer > 0 && this.lives > 0 && this.score > 4 ) {
+        if (this.timer > 0 && this.lives > 0 && this.score > this.neededScore-1 ) {
             textFont(myFont);
             textSize(100);
             fill(255,215,0);

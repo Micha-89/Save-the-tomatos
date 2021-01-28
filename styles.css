@@ -14,9 +14,34 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-family: sans-serif;
+    font-family: 'Planes_ValMore';
     background-color: #4e9961;
     margin: 0;
+  }
+
+  .labels {
+    cursor: url('/images/start/tile007.png'), auto;
+  }
+
+  .slider {
+    -webkit-appearance: none;  
+    appearance: none;
+    background: #d3d3d3; 
+    outline: none; 
+    border-radius: 25px;
+    opacity: 0.7; 
+    -webkit-transition: .2s; 
+    transition: opacity .2s;
+    cursor: url('/images/start/tile007.png'), auto;
+  }
+
+  .slider::-webkit-slider-thumb {
+    cursor: url('/images/start/tile007.png'), auto;
+    
+  }
+  
+  .slider::-moz-range-thumb {
+    cursor: url('/images/start/tile007.png'), auto;
   }
 
   #start {
@@ -34,8 +59,7 @@ body {
     width: 650px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 150px;
-    font-family: 'Planes_ValMore';
+    margin-top: 80px;
     font-weight: bold;
     font-style: normal;
   }
@@ -45,7 +69,6 @@ body {
     color: rgb(255,215,0);
     width: 650px;
     margin-top: 0px;
-    font-family: 'Planes_ValMore';
     font-weight: bold;
     font-style: normal;
   }
@@ -55,7 +78,6 @@ body {
     color: rgb(255,215,0);
     display: flex;
     justify-content: center;
-    font-family: 'Planes_ValMore';
     font-weight: bold;
     font-style: normal;
     list-style-type: none;

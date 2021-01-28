@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="start">
-        <p>A dirty swamp goblin stole the last of your tomatos. Without them, you'll die! Luckily it dropped some of them on the way to it's den. Hungry bats are lured by the smell of your sweet tomatos. They want them all for themselves and attack you on sight. Save at least 5 of your precious tomatos before it's too late.</p>
+        <p>A dirty swamp goblin stole the last of your tomatos. Without them, you'll die! Luckily it dropped some of them on the way to it's den. Hungry bats are lured by the smell of your sweet tomatos. They want them all for themselves and attack you on sight. Save at least <span id="numberTomatos"></span> of your precious tomatos before it's too late.</p>
         <img src="/images/bat/Bat.png" alt="image of pixelart bat"> 
         <p id="small">Click the bat to start</p>
         <ul><li>Hold right arrow: move</li><li>Hold space: defend</li><li>Enter: reload game</li></ul>
@@ -22,6 +22,26 @@
             <div id="tomato"><img src="/images/start/Tomato.png" alt="tomato"></div>
             <div id="goblin"><img  src="images/start/Goblin_Melee.png" alt="goblin"></div>
         </div>
+        <div>
+            <ul>
+                <li>
+                    <label for="livesRange" class="labels">Lives</label>
+                    <input type="range" min="1" max="10" value="3" step="1" class="slider" id="livesRange">
+                    <span id="livesSpan"></span>
+                </li>
+                <li>
+                    <label for="tomatosRange" class="labels">Tomatos</label>
+                    <input type="range" min="5" max="20" value="5" step="5" class="slider" id="tomatosRange">
+                    <span id="tomatosSpan"></span>
+                </li>
+                <li>
+                    <label for="timerRange" class="labels">Timer</label>
+                    <input type="range" min="5" max="30" value="10" step="5" class="slider" id="timerRange">
+                    <span id="timerSpan"></span>
+
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="background.js"></script>
     <script src="tomato.js"></script>
@@ -29,6 +49,7 @@
     <script src="player.js"></script>
     <script src="game.js"></script>
     <script src="score.js"></script>
+    <script src="sliders.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
