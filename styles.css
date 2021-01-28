@@ -31,17 +31,31 @@ body {
     border-radius: 25px;
     opacity: 0.7; 
     -webkit-transition: .2s; 
+    padding-right: 5px;
     transition: opacity .2s;
     cursor: url('/images/start/tile007.png'), auto;
   }
 
   .slider::-webkit-slider-thumb {
     cursor: url('/images/start/tile007.png'), auto;
-    
+    appearance: none;
+    width: 12px;
+    height: 11.5px;
+    margin: 3px;
+    border-radius: 50px;
+    background: rgb(255,215,0);
+    border: 1px solid black;
   }
   
   .slider::-moz-range-thumb {
     cursor: url('/images/start/tile007.png'), auto;
+    appearance: none;
+    width: 12px;
+    height: 11.5px;
+    margin: 3px;
+    border-radius: 50px;
+    background: rgb(255,215,0);
+    border: 1px solid black;
   }
 
   #start {
@@ -119,6 +133,7 @@ body {
 
     #start p {
       margin-top: 50px;
+      font-size: 25px;
     }
 
     #player img {
