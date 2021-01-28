@@ -17,3 +17,15 @@ document.querySelector('#timerSpan').innerHTML = timerRange.value;
 timerRange.oninput = function (){
     document.querySelector('#timerSpan').innerHTML = timerRange.value;
 }
+
+let batRange = document.querySelector('#batRange');
+batRange.oninput = function (){
+    if(batRange.value == 1) {
+        document.querySelector('#batSpan').innerHTML = 'slow';
+    } else if (batRange.value == 2) {
+        document.querySelector('#batSpan').innerHTML = 'fast';
+    } else if (batRange.value == 3) {
+        document.querySelector('#batSpan').innerHTML = 'crazy';
+    }
+    
+}

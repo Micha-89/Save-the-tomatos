@@ -11,6 +11,10 @@ class Bat {
         this.swordSound;
         this.playerHitSound;
         this.evadeSound;
+        this.ySpeedFast;
+        this.xSpeedFast;
+        this.ySpeed;
+        this.xSpeed;
     }
     preload() {
         this.batData = loadJSON('images/bat/bat.JSON')
@@ -39,15 +43,15 @@ class Bat {
         //speed of the bat
 
         if (keyIsDown(RIGHT_ARROW)) { 
-            if (this.y < 510){
-                this.y = this.y + Math.random()*80;
+            if (this.y < 500){
+                this.y = this.y + Math.random()*this.ySpeedFast;
             }
-            this.x = this.x - Math.random()*140;
+            this.x = this.x - Math.random()*this.xSpeedFast;
         } else {
-            if (this.y < 510){
-                this.y = this.y + Math.random()*60;
+            if (this.y < 500){
+                this.y = this.y + Math.random()*this.ySpeed;
             }
-            this.x = this.x - Math.random()*75;
+            this.x = this.x - Math.random()*this.xSpeed;
         }
 
         //player collision or outside of canvas
@@ -60,25 +64,25 @@ class Bat {
 
         if(dist(obstacleX, obstacleY, playerX, playerY) < 40 && !keyIsDown(32)) {
             this.x = 1090;
-            this.y = Math.random()*509;
+            this.y = Math.random()*370;
             game.player.lives--;
             score.lives--;    
             this.playerHitSound.play();               
         } else if (dist(obstacleX, obstacleY, playerX, playerY) < 40 && keyIsDown(32) && keyIsDown(RIGHT_ARROW)) {
             this.x = 1090;
-            this.y = Math.random()*509;
+            this.y = Math.random()*370;
             game.player.lives--;
             score.lives--;  
             this.playerHitSound.play();  
         } else if (dist(obstacleX, obstacleY, playerX, playerY) < 40 && keyIsDown(32) && !keyIsDown(RIGHT_ARROW)) {
             this.x = 1090;
-            this.y = Math.random()*509;
+            this.y = Math.random()*370;
             this.batHurtSound.play();
             this.swordSound.play();
         } else if (this.x < 110) {
             this.evadeSound.play();
             this.x = 1090;
-            this.y = Math.random()*509;
+            this.y = Math.random()*370;
         }
           
     }
