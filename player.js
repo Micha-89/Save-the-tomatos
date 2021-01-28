@@ -62,7 +62,8 @@ class Player {
     draw() {
         if (keyIsDown(RIGHT_ARROW)) {      
             if (this.lives < 1) {
-                image(this.animationDeath[5], this.x, this.y, 200, 200);frameRate(0);
+                image(this.animationDeath[5], this.x, this.y, 200, 200);
+                frameRate(0);
             } else {
                 image(this.animationRun[frameCount % this.animationRun.length], this.x, this.y, 200, 200);
             }
